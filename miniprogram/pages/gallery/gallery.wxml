@@ -1,0 +1,44 @@
+<!--pages/gallery/gallery.wxml-->
+<view class="container">
+  <!-- 顶部状态栏 -->
+  <view class="status-bar" wx:if="{{generatingCount > 0}}">
+    <view class="status-content">
+      <view class="status-icon">⏳</view>
+      <text class="status-text">正在生成 {{generatingCount}} 张图片...</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{isEmpty}}">
+    <text class="empty-icon">🎨</text>
+    <text class="empty-text">还没有生成过图片</text>
+    <text class="empty-hint">快去首页创作你的第一张作品吧~</text>
+    <navigator url="/pages/index/index" open-type="switchTab" class="empty-btn">
+      前往创作
+    </navigator>
+  </view>
+
+  <!-- 画廊列表 -->
+  <view class="gallery-container" wx:else>
+    <view class="gallery-header">
+      <text class="gallery-title">我的作品 ({{historyList.length}})</text>
+      <text class="clear-btn" bindtap="onClearAll">清空</text>
+    </view>
+
+    <view class="gallery-grid">
+      <view 
+        wx:for="{{historyList}}" 
+        wx:key="id"
+        class="gallery-item"
+        data-index="{{index}}"
+        bindtap="onImageTap"
+        bindlongpress="onImageLongPress"
+      >
+        <image class="gallery-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="gallery-mask">
+          <text class="gallery-prompt">{{item.prompt}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

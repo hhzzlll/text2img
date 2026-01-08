@@ -1,0 +1,90 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 提示词输入区 -->
+  <view class="prompt-section">
+    <view class="section-title">✨ 描述你的想象</view>
+    <textarea 
+      class="prompt-input" 
+      placeholder="描述你想象中的画面，例如：一只穿着宇航服的猫，赛博朋克风格，霓虹灯光..."
+      value="{{prompt}}"
+      bindinput="onPromptInput"
+      maxlength="500"
+      auto-height
+    />
+    <view class="prompt-actions">
+      <button class="action-btn" bindtap="onRandomPrompt">🎲 随机灵感</button>
+      <button class="action-btn" bindtap="onClearPrompt">❌ 清空</button>
+    </view>
+  </view>
+
+  <!-- 提示词标签助手 -->
+  <view class="tags-section">
+    <view class="section-title">💡 标签助手</view>
+    <view class="tags-container">
+      <view 
+        wx:for="{{promptTags}}" 
+        wx:key="index"
+        class="tag-item"
+        data-tag="{{item}}"
+        bindtap="onTagClick"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 风格选择 -->
+  <view class="style-section">
+    <view class="section-title">🎨 风格选择</view>
+    <scroll-view class="style-scroll" scroll-x enable-flex="true">
+      <view 
+        wx:for="{{styles}}" 
+        wx:key="id"
+        class="style-item {{selectedStyle === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onStyleSelect"
+      >
+        <text class="style-icon">{{item.icon}}</text>
+        <text class="style-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 比例选择 -->
+  <view class="ratio-section">
+    <view class="section-title">📐 图片比例</view>
+    <view class="ratio-container">
+      <view 
+        wx:for="{{aspectRatios}}" 
+        wx:key="value"
+        class="ratio-item {{selectedRatio === item.value ? 'active' : ''}}"
+        data-ratio="{{item.value}}"
+        bindtap="onRatioSelect"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 生成按钮 -->
+  <view class="generate-section">
+    <button 
+      class="generate-btn {{isGenerating ? 'generating' : ''}}" 
+      bindtap="onGenerate"
+      disabled="{{isGenerating}}"
+    >
+      {{isGenerating ? '🎨 正在绘制中...' : '✨ 立即生成'}}
+    </button>
+  </view>
+
+  <!-- 结果展示 -->
+  <view class="result-section" wx:if="{{showResult}}">
+    <view class="section-title">🖼️ 生成结果</view>
+    <image class="result-image" src="{{generatedImage}}" mode="aspectFit" />
+    <view class="result-actions">
+      <button class="result-btn" bindtap="onSaveImage">📥 保存到相册</button>
+      <button class="result-btn" bindtap="onCopyPrompt">📋 复制提示词</button>
+      <button class="result-btn" bindtap="onRegenerate">🔄 再来一张</button>
+    </view>
+  </view>
+</view>

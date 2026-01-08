@@ -1,0 +1,32 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <view class="logo-section">
+    <view class="logo-box">
+      <text class="logo-icon">🎨</text>
+    </view>
+    <text class="app-name">AI 灵感绘画</text>
+    <text class="version">Version {{version}}</text>
+  </view>
+
+  <view class="content-section">
+    <view class="card">
+      <view class="card-title">关于项目</view>
+      <text class="card-text">这是一个基于豆包大模型的 AI 绘画小程序，旨在为用户提供便捷的创意生成工具。本项目为物联网工程实训作品。</text>
+    </view>
+
+    <view class="card">
+      <view class="card-title">核心功能</view>
+      <view class="feature-list">
+        <view wx:for="{{features}}" wx:key="*this" class="feature-item">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">开发者</view>
+      <text class="card-text">物联网工程实训——胡子龙</text>
+      <text class="card-subtext">© 2025 All Rights Reserved</text>
+    </view>
+  </view>
+</view>

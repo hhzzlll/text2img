@@ -1,0 +1,46 @@
+<!--pages/guide/guide.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">Prompt 提示词指南</text>
+    <text class="subtitle">掌握这些技巧，让 AI 更懂你</text>
+  </view>
+
+  <!-- 基础公式 -->
+  <view class="section">
+    <view class="section-title">📚 基础公式</view>
+    <view class="formula-card">
+      <text class="formula-text">主体 + 风格 + 环境 + 修饰词</text>
+    </view>
+  </view>
+
+  <!-- 详细拆解 -->
+  <view class="section">
+    <view class="section-title">🔍 详细拆解</view>
+    <view class="guide-list">
+      <view wx:for="{{guideItems}}" wx:key="title" class="guide-item">
+        <text class="item-title">{{item.title}}</text>
+        <text class="item-content">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优秀范例 -->
+  <view class="section">
+    <view class="section-title">✨ 优秀范例 (点击复制)</view>
+    <view class="example-list">
+      <view 
+        wx:for="{{examples}}" 
+        wx:key="desc" 
+        class="example-item"
+        data-text="{{item.prompt}}"
+        bindtap="onCopy"
+      >
+        <view class="example-header">
+          <text class="example-tag">{{item.desc}}</text>
+          <text class="copy-icon">📋</text>
+        </view>
+        <text class="example-text">{{item.prompt}}</text>
+      </view>
+    </view>
+  </view>
+</view>

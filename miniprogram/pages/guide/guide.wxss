@@ -1,0 +1,129 @@
+/* pages/guide/guide.wxss */
+.container {
+  padding: 40rpx 30rpx;
+  background: #f5f7fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.section {
+  margin-bottom: 50rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  padding-left: 16rpx;
+  border-left: 8rpx solid #667eea;
+}
+
+/* 公式卡片 */
+.formula-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 20rpx rgba(102, 126, 234, 0.3);
+}
+
+.formula-text {
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+}
+
+/* 指南列表 */
+.guide-list {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 0 30rpx;
+}
+
+.guide-item {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.guide-item:last-child {
+  border-bottom: none;
+}
+
+.item-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.item-content {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 范例列表 */
+.example-item {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.example-item:active {
+  transform: scale(0.98);
+  background: #f9f9f9;
+}
+
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.example-tag {
+  font-size: 24rpx;
+  color: #667eea;
+  background: #eef1ff;
+  padding: 6rpx 16rpx;
+  border-radius: 10rpx;
+}
+
+.copy-icon {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.example-text {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}
